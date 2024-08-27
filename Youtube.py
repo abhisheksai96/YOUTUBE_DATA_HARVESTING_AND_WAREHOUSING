@@ -149,7 +149,10 @@ def get_playlist_details(channel_id):
 
 #upload to mongoDB
 
-client=pymongo.MongoClient("mongodb+srv://abhisheksai96:abecedarian1@cluster0.cmpi2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+client = pymongo.MongoClient(
+        "mongodb+srv://abhisheksai96:abecedarian1@cluster0.cmpi2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+        serverSelectionTimeoutMS=5000  # Adjust the timeout as necessary
+    )
 db=client["Youtube_data"]
 
 def channel_details(channel_id):
